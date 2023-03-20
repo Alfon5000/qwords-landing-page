@@ -1,312 +1,218 @@
-<!doctype html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-  <meta name="generator" content="Hugo 0.104.2">
-  <title>Technolo-G</title>
-
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/carousel/">
-
-
-
-
-
-  <link href="{{ asset('bootstrap-5.2.3-examples/assets/dist/css/bootstrap.min.css') }}" rel="stylesheet">
-
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
-
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-
-    .b-example-divider {
-      height: 3rem;
-      background-color: rgba(0, 0, 0, .1);
-      border: solid rgba(0, 0, 0, .15);
-      border-width: 1px 0;
-      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
-    }
-
-    .b-example-vr {
-      flex-shrink: 0;
-      width: 1.5rem;
-      height: 100vh;
-    }
-
-    .bi {
-      vertical-align: -.125em;
-      fill: currentColor;
-    }
-
-    .nav-scroller {
-      position: relative;
-      z-index: 2;
-      height: 2.75rem;
-      overflow-y: hidden;
-    }
-
-    .nav-scroller .nav {
-      display: flex;
-      flex-wrap: nowrap;
-      padding-bottom: 1rem;
-      margin-top: -1px;
-      overflow-x: auto;
-      text-align: center;
-      white-space: nowrap;
-      -webkit-overflow-scrolling: touch;
-    }
-  </style>
-
-
-  <!-- Custom styles for this template -->
-  <link href="{{ asset('bootstrap-5.2.3-examples/carousel/carousel.css') }}" rel="stylesheet">
-</head>
-
-<body>
-
-  <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Technolo-G</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-          aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled">Disabled</a>
-            </li>
-          </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-indicators">
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true"
-          aria-label="Slide 1"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-        <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <rect width="100%" height="100%" fill="#777" />
-          </svg>
-
-          <div class="container">
-            <div class="carousel-caption text-start">
-              <h1>Example headline.</h1>
-              <p>Some representative placeholder content for the first slide of the carousel.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <rect width="100%" height="100%" fill="#777" />
-          </svg>
-
-          <div class="container">
-            <div class="carousel-caption">
-              <h1>Another example headline.</h1>
-              <p>Some representative placeholder content for the second slide of the carousel.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <rect width="100%" height="100%" fill="#777" />
-          </svg>
-
-          <div class="container">
-            <div class="carousel-caption text-end">
-              <h1>One more for good measure.</h1>
-              <p>Some representative placeholder content for the third slide of this carousel.</p>
-              <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
+@section('content')
+  {{-- navbar start --}}
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">{{ env('app_name') }}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#bootcamps">Bootcamps</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#memberships">Memberships</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
+  {{-- navbar end --}}
 
-
-    <!-- Marketing messaging and featurettes
-  ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
-      <div class="row">
-        <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%"
-              fill="#777" dy=".3em">140x140</text>
-          </svg>
-
-          <h2 class="fw-normal">Heading</h2>
-          <p>Some representative placeholder content for the three columns of text below the carousel. This is the first
-            column.</p>
-          <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%"
-              fill="#777" dy=".3em">140x140</text>
-          </svg>
-
-          <h2 class="fw-normal">Heading</h2>
-          <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.
-          </p>
-          <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#777" /><text x="50%" y="50%"
-              fill="#777" dy=".3em">140x140</text>
-          </svg>
-
-          <h2 class="fw-normal">Heading</h2>
-          <p>And lastly this, the third column of representative placeholder content.</p>
-          <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-
-
-      <!-- START THE FEATURETTES -->
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-muted">It’ll blow
-              your mind.</span></h2>
-          <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose
-            here.</p>
-        </div>
-        <div class="col-md-5">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-            height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%"
-              fill="#aaa" dy=".3em">500x500</text>
-          </svg>
-
+  {{-- carousel start --}}
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{ asset('img/carousels/carousel-1.jpg') }}" class="d-block w-100" alt="..."
+          style="max-height: 550px">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>First slide label</h5>
+          <p>Some representative placeholder content for the first slide.</p>
         </div>
       </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7 order-md-2">
-          <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-muted">See for
-              yourself.</span></h2>
-          <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how
-            this layout would work with some actual real-world content in place.</p>
-        </div>
-        <div class="col-md-5 order-md-1">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-            height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%"
-              fill="#aaa" dy=".3em">500x500</text>
-          </svg>
-
+      <div class="carousel-item">
+        <img src="{{ asset('img/carousels/carousel-2.jpg') }}" class="d-block w-100" alt="..."
+          style="max-height: 550px">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
         </div>
       </div>
-
-      <hr class="featurette-divider">
-
-      <div class="row featurette">
-        <div class="col-md-7">
-          <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span
-              class="text-muted">Checkmate.</span></h2>
-          <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really
-            intended to be actually read, simply here to give you a better view of what this would look like with some
-            actual content. Your content.</p>
-        </div>
-        <div class="col-md-5">
-          <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-            height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-            preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#eee" /><text x="50%" y="50%"
-              fill="#aaa" dy=".3em">500x500</text>
-          </svg>
-
+      <div class="carousel-item">
+        <img src="{{ asset('img/carousels/carousel-3.jpg') }}" class="d-block w-100" alt="..."
+          style="max-height: 550px">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Third slide label</h5>
+          <p>Some representative placeholder content for the third slide.</p>
         </div>
       </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  {{-- carousel end --}}
 
-      <hr class="featurette-divider">
+  {{-- section bootcamps start --}}
+  <section id="bootcamps" class="container my-5">
+    <h1 class="text-center text-primary display-6 mb-5">Bootcamps</h1>
+    <div class="row">
+      <div class="col-12 col-sm-4 g-3">
+        <div class="card border border-primary">
+          <img src="{{ asset('img/bootcamps/bootcamp-1.jpg') }}" class="card-img-top" alt="..."
+            style="max-height: 200px;">
+          <div class="card-body">
+            <h5 class="card-title">Full Stack Web Development</h5>
+            <p class="card-text">In this bootcamp you will be guided for 4 months from the basics to becoming a Full Stack
+              Web Developer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4 g-3">
+        <div class="card border border-primary">
+          <img src="{{ asset('img/bootcamps/bootcamp-2.jpg') }}" class="card-img-top" alt="..."
+            style="max-height: 200px;">
+          <div class="card-body">
+            <h5 class="card-title">UI/UX Design</h5>
+            <p class="card-text">In this bootcamp you will be guided for 4 months from the basics to becoming a UI/UX
+              Designer.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4 g-3">
+        <div class="card border border-primary">
+          <img src="{{ asset('img/bootcamps/bootcamp-3.jpg') }}" class="card-img-top" alt="..."
+            style="max-height: 200px;">
+          <div class="card-body">
+            <h5 class="card-title">Data Science</h5>
+            <p class="card-text">In this bootcamp you will be guided for 4 months from the basics to becoming a Data
+              Scientist.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{-- section bootcamps end --}}
 
-      <!-- /END THE FEATURETTES -->
+  <hr class="border border-primary border-1 opacity-75 mx-auto" width="85%">
 
-    </div><!-- /.container -->
+  {{-- section memberships start --}}
+  <section id="memberships" class="container my-5">
+    <h1 class="text-center text-primary display-6 mb-5">Memberships</h1>
+    <div class="row justify-content-center">
+      <div class="col-12 col-sm-4">
+        <div class="card border border-primary">
+          <div class="card-header">
+            <strong class="text-primary">Reguler</strong>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Portfolio: 5</li>
+            <li class="list-group-item">Live Session: 10</li>
+            <li class="list-group-item">Mentoring 1-on-1: No</li>
+            <li class="list-group-item">Job Guarantee: No</li>
+            <li class="list-group-item">Price: Rp. 5.000.000</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-12 col-sm-4">
+        <div class="card border border-primary">
+          <div class="card-header">
+            <strong class="text-primary">VIP</strong>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Portfolio: 10</li>
+            <li class="list-group-item">Live Session: 15</li>
+            <li class="list-group-item">Mentoring 1-on-1: Yes</li>
+            <li class="list-group-item">Job Guarantee: Yes</li>
+            <li class="list-group-item">Price: Rp. 8.000.000</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{-- section memberships end --}}
 
+  <hr class="border border-primary border-1 opacity-75 mx-auto" width="85%">
 
-    <!-- FOOTER -->
-    <footer class="container">
-      <p class="float-end"><a href="#">Back to top</a></p>
-      <p>&copy; 2017–2022 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a>
-      </p>
-    </footer>
-  </main>
+  {{-- section about start --}}
+  <section id="about" class="container my-5">
+    <h1 class="text-center text-primary display-6 mb-5">About Us</h1>
+    <div class="row">
+      <div class="col-12 col-sm-6">DigiCamp is a company that was founded in 2010. Our company is engaged in digital
+        skills training for people who want to start or move into the technology industry. Our company provides several
+        bootcamps with a training duration of 6 months from basic to work ready.</div>
+      <div class="col-12 col-sm-6"><img src="{{ asset('img/about.jpg') }}" alt="" class="img-fluid"></div>
+    </div>
+  </section>
+  {{-- section about end --}}
 
+  <hr class="border border-primary border-1 opacity-75 mx-auto" width="85%">
 
-  <script src="{{ asset('bootstrap-5.2.3-examples/assets/dist/js/bootstrap.bundle.min.js') }}"></script>
+  {{-- section contact start --}}
+  <section id="contact" class="container my-5">
+    <h1 class="text-center text-primary display-6 mb-5">Contact Us</h1>
+    <div class="row">
+      <div class="col-12 col-sm-6">
+        <h2 class="text-primary">Any Question?</h2>
+        <p>If you have any questions regarding the bootcamp program, don't hesitate to ask us via the following form. We
+          will be very happy to answer any of your questions.</p>
+        <img src="{{ asset('img/contact.jpg') }}" alt="" class="img-fluid">
+      </div>
+      <div class="col-12 col-sm-6">
+        <form action="" method="post">
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="name" placeholder="John Doe" name="name">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" placeholder="name@example.com" name="email">
+          </div>
+          <div class="mb-3">
+            <label for="phone" class="form-label">Phone Number</label>
+            <input type="text" class="form-control" id="phone" placeholder="+6281234567890" name="phone">
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="I want to register on this bootcamp"
+              name="message"></textarea>
+          </div>
+          <div class="mb-3 d-grid">
+            <button class="btn btn-primary">Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  {{-- section contact end --}}
 
-
-</body>
-
-</html>
+  {{-- footer start --}}
+  <footer class="bg-primary text-white text-center" style="height: 50px;">
+    <p style="line-height: 50px;">Copyright &copy 2023 {{ env('app_name') }}</p>
+  </footer>
+  {{-- footer end --}}
+@endsection
