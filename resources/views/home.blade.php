@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Home')
+
 @section('content')
   {{-- navbar start --}}
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">

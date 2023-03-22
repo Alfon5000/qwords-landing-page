@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,3 +16,11 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
+
+Route::get('/bootcamps', [BootcampController::class, 'index']);
+
+Route::get('/memberships', [MembershipController::class, 'index']);
+
+Route::get('/visitors', [VisitorController::class, 'index']);
