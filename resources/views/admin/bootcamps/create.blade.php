@@ -8,11 +8,15 @@
   <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <h1 class="h2 my-2">@yield('title')</h1>
     <hr>
-    <form action="/bootcamps" method="post">
+    <form action="/bootcamps" method="post" enctype="multipart/form-data">
       @csrf
       <div class="mb-3">
         <label for="title" class="form-label">Title</label>
         <input type="text" class="form-control" id="title" name="title">
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input class="form-control" type="file" id="image" name="image">
       </div>
       <div class="mb-3">
         <label for="description" class="form-label">Description</label>

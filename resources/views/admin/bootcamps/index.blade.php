@@ -25,6 +25,7 @@
           <thead>
             <tr>
               <th scope="col">#</th>
+              <th scope="col">Image</th>
               <th scope="col">Title</th>
               <th scope="col">Description</th>
               <th scope="col">Actions</th>
@@ -34,6 +35,10 @@
             @foreach ($bootcamps as $bootcamp)
               <tr>
                 <td>{{ $loop->iteration }}</td>
+                <td>
+                  <img src="{{ asset('storage/' . $bootcamp->image) }}" alt="" class="img-thumbnail"
+                    width="200px">
+                </td>
                 <td>{{ $bootcamp->title }}</td>
                 <td>{{ $bootcamp->description }}</td>
                 <td>

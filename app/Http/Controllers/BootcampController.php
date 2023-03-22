@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Bootcamp;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BootcampController extends Controller
 {
@@ -23,11 +24,12 @@ class BootcampController extends Controller
         return view('admin.bootcamps.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
         $title = request('title');
+        $image = $request->file('image')->store('bootcamp-images');
         $description = request('description');
-        Bootcamp::create(['title' => $title, 'description' => $description]);
+        Bootcamp::create(['title' => $title, 'image' => $image, 'description' => $description]);
         return redirect('/bootcamps');
     }
 
@@ -37,12 +39,14 @@ class BootcampController extends Controller
         return view('admin.bootcamps.edit', compact('bootcamp'));
     }
 
-    public function update($id)
+    public function update(Request $request, $id)
     {
         $bootcamp = Bootcamp::findOrFail($id);
         $bootcamp->title = request('title');
+        $bootcamp->image = $request->file('image')->store('bootcamp-images');
         $bootcamp->description = request('description');
         $bootcamp->save();
+        Storage::delete(request('old_image'));
         return redirect('/bootcamps');
     }
 
@@ -50,6 +54,7 @@ class BootcampController extends Controller
     {
         $bootcamp = Bootcamp::findOrFail($id);
         $bootcamp->delete();
+        Storage::delete($bootcamp->image);
         return redirect('/bootcamps');
     }
 }

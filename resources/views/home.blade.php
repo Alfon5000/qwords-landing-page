@@ -83,39 +83,18 @@
   <section id="bootcamps" class="container my-5">
     <h1 class="text-center text-primary display-6 mb-5">Bootcamps</h1>
     <div class="row">
-      <div class="col-12 col-sm-4 g-3">
-        <div class="card border border-primary" style="height: 350px;">
-          <img src="{{ asset('img/bootcamps/bootcamp-1.jpg') }}" class="card-img-top" alt="..."
-            style="max-height: 200px;">
-          <div class="card-body">
-            <h5 class="card-title text-primary">Full Stack Web Development</h5>
-            <p class="card-text">In this bootcamp you will be guided for 4 months from the basics to becoming a Full Stack
-              Web Developer.</p>
+      @foreach ($bootcamps as $bootcamp)
+        <div class="col-12 col-sm-4 g-3">
+          <div class="card border border-primary" style="height: 350px;">
+            <img src="{{ asset('storage/' . $bootcamp->image) }}" class="card-img-top" alt="..."
+              style="max-height: 200px;">
+            <div class="card-body">
+              <h5 class="card-title text-primary">{{ $bootcamp->title }}</h5>
+              <p class="card-text">{{ $bootcamp->description }}</p>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-12 col-sm-4 g-3">
-        <div class="card border border-primary" style="height: 350px;">
-          <img src="{{ asset('img/bootcamps/bootcamp-2.jpg') }}" class="card-img-top" alt="..."
-            style="max-height: 200px;">
-          <div class="card-body">
-            <h5 class="card-title text-primary">UI/UX Design</h5>
-            <p class="card-text">In this bootcamp you will be guided for 4 months from the basics to becoming a UI/UX
-              Designer.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 col-sm-4 g-3">
-        <div class="card border border-primary" style="height: 350px;">
-          <img src="{{ asset('img/bootcamps/bootcamp-3.jpg') }}" class="card-img-top" alt="..."
-            style="max-height: 200px;">
-          <div class="card-body">
-            <h5 class="card-title text-primary">Data Science</h5>
-            <p class="card-text">In this bootcamp you will be guided for 4 months from the basics to becoming a Data
-              Scientist.</p>
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
   </section>
   {{-- section bootcamps end --}}

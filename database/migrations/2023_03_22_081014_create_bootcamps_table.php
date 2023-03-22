@@ -16,6 +16,7 @@ class CreateBootcampsTable extends Migration
         Schema::create('bootcamps', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('image');
             $table->text('description');
             $table->timestamps();
         });
