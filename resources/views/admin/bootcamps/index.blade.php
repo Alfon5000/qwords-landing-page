@@ -37,7 +37,7 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>
                   <img src="{{ asset('storage/' . $bootcamp->image) }}" alt="" class="img-thumbnail"
-                    width="200px">
+                    style="height: 150px; width: 200px; overflow: hidden;">
                 </td>
                 <td>{{ $bootcamp->title }}</td>
                 <td>{{ $bootcamp->description }}</td>

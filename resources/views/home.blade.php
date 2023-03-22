@@ -4,75 +4,35 @@
 
 @section('content')
   {{-- navbar start --}}
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">{{ env('app_name') }}</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#bootcamps">Bootcamps</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#memberships">Memberships</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  @include('layouts.navbar')
   {{-- navbar end --}}
 
   {{-- carousel start --}}
-  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
         aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{{ asset('img/carousels/carousel-1.jpg') }}" class="d-block w-100" alt="..."
-          style="max-height: 550px">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Some representative placeholder content for the first slide.</p>
-        </div>
+        <img src="{{ asset('img/carousels/carousel-1.jpg') }}" class="d-block w-100" alt="..." height="600px">
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('img/carousels/carousel-2.jpg') }}" class="d-block w-100" alt="..."
-          style="max-height: 550px">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
+        <img src="{{ asset('img/carousels/carousel-2.jpg') }}" class="d-block w-100" alt="..." height="600px">
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('img/carousels/carousel-3.jpg') }}" class="d-block w-100" alt="..."
-          style="max-height: 550px">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Third slide label</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
+        <img src="{{ asset('img/carousels/carousel-3.jpg') }}" class="d-block w-100" alt="..." height="600px">
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
@@ -85,9 +45,9 @@
     <div class="row">
       @foreach ($bootcamps as $bootcamp)
         <div class="col-12 col-sm-4 g-3">
-          <div class="card border border-primary" style="height: 350px;">
+          <div class="card border border-primary">
             <img src="{{ asset('storage/' . $bootcamp->image) }}" class="card-img-top" alt="..."
-              style="max-height: 200px;">
+              style="height: 200px; overflow: hidden;">
             <div class="card-body">
               <h5 class="card-title text-primary">{{ $bootcamp->title }}</h5>
               <p class="card-text">{{ $bootcamp->description }}</p>
@@ -154,7 +114,8 @@
         <img src="{{ asset('img/contact.jpg') }}" alt="" class="img-fluid">
       </div>
       <div class="col-12 col-sm-6">
-        <form action="" method="post">
+        <form action="/visitors" method="post">
+          @csrf
           <div class="mb-3">
             <label for="name" class="form-label">Full Name</label>
             <input type="text" class="form-control" id="name" placeholder="John Doe" name="name">
