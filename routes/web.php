@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\VisitorController;
 use App\Http\Controllers\BootcampController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MembershipController;
-use App\Http\Controllers\VisitorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +19,18 @@ use App\Http\Controllers\VisitorController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('guest');
 
-Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 
-Route::resource('/bootcamps', BootcampController::class);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
 
-Route::resource('/memberships', MembershipController::class);
+Route::post('/login', [LoginController::class, 'authenticate']);
 
-Route::resource('/visitors', VisitorController::class);
+Route::post('/logout', [LoginController::class, 'logout']);
+
+Route::resource('/bootcamps', BootcampController::class)->middleware('auth');
+
+Route::resource('/memberships', MembershipController::class)->middleware('auth');
+
+Route::resource('/visitors', VisitorController::class)->middleware('auth');

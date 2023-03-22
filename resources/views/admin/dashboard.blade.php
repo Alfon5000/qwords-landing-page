@@ -13,7 +13,7 @@
         <div class="card text-center bg-primary text-white py-2">
           <div class="card-body">
             <h5 class="card-title">Bootcamps</h5>
-            <p class="card-text">3</p>
+            <p class="card-text">{{ $count_bootcamps }}</p>
             <span data-feather="code" class="align-text-bottom"></span>
           </div>
         </div>
@@ -22,7 +22,7 @@
         <div class="card text-center bg-success text-white py-2">
           <div class="card-body">
             <h5 class="card-title">Memberships</h5>
-            <p class="card-text">2</p>
+            <p class="card-text">{{ $count_memberships }}</p>
             <span data-feather="credit-card" class="align-text-bottom"></span>
           </div>
         </div>
@@ -31,7 +31,7 @@
         <div class="card text-center bg-danger text-white py-2">
           <div class="card-body">
             <h5 class="card-title">Visitors</h5>
-            <p class="card-text">10</p>
+            <p class="card-text">{{ $count_visitors }}</p>
             <span data-feather="users" class="align-text-bottom"></span>
           </div>
         </div>
