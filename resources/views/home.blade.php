@@ -84,33 +84,33 @@
     <h1 class="text-center text-primary display-6 mb-5">Bootcamps</h1>
     <div class="row">
       <div class="col-12 col-sm-4 g-3">
-        <div class="card border border-primary">
+        <div class="card border border-primary" style="height: 350px;">
           <img src="{{ asset('img/bootcamps/bootcamp-1.jpg') }}" class="card-img-top" alt="..."
             style="max-height: 200px;">
           <div class="card-body">
-            <h5 class="card-title">Full Stack Web Development</h5>
+            <h5 class="card-title text-primary">Full Stack Web Development</h5>
             <p class="card-text">In this bootcamp you will be guided for 4 months from the basics to becoming a Full Stack
               Web Developer.</p>
           </div>
         </div>
       </div>
       <div class="col-12 col-sm-4 g-3">
-        <div class="card border border-primary">
+        <div class="card border border-primary" style="height: 350px;">
           <img src="{{ asset('img/bootcamps/bootcamp-2.jpg') }}" class="card-img-top" alt="..."
             style="max-height: 200px;">
           <div class="card-body">
-            <h5 class="card-title">UI/UX Design</h5>
+            <h5 class="card-title text-primary">UI/UX Design</h5>
             <p class="card-text">In this bootcamp you will be guided for 4 months from the basics to becoming a UI/UX
               Designer.</p>
           </div>
         </div>
       </div>
       <div class="col-12 col-sm-4 g-3">
-        <div class="card border border-primary">
+        <div class="card border border-primary" style="height: 350px;">
           <img src="{{ asset('img/bootcamps/bootcamp-3.jpg') }}" class="card-img-top" alt="..."
             style="max-height: 200px;">
           <div class="card-body">
-            <h5 class="card-title">Data Science</h5>
+            <h5 class="card-title text-primary">Data Science</h5>
             <p class="card-text">In this bootcamp you will be guided for 4 months from the basics to becoming a Data
               Scientist.</p>
           </div>
@@ -126,34 +126,24 @@
   <section id="memberships" class="container my-5">
     <h1 class="text-center text-primary display-6 mb-5">Memberships</h1>
     <div class="row justify-content-center">
-      <div class="col-12 col-sm-4">
-        <div class="card border border-primary">
-          <div class="card-header">
-            <strong class="text-primary">Reguler</strong>
+      @foreach ($memberships as $membership)
+        <div class="col-12 col-sm-4">
+          <div class="card border border-primary">
+            <div class="card-header text-center">
+              <h5>
+                <strong class="text-primary">{{ $membership->name }}</strong>
+              </h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Portfolio: {{ $membership->portfolio }} Projects</li>
+              <li class="list-group-item">Live Session: {{ $membership->live_session }} Times</li>
+              <li class="list-group-item">Mentoring 1-on-1: {{ $membership->mentoring }}</li>
+              <li class="list-group-item">Job Guarantee: {{ $membership->job_guarantee }}</li>
+              <li class="list-group-item">Price: Rp. {{ $membership->price }}</li>
+            </ul>
           </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Portfolio: 5</li>
-            <li class="list-group-item">Live Session: 10</li>
-            <li class="list-group-item">Mentoring 1-on-1: No</li>
-            <li class="list-group-item">Job Guarantee: No</li>
-            <li class="list-group-item">Price: Rp. 5.000.000</li>
-          </ul>
         </div>
-      </div>
-      <div class="col-12 col-sm-4">
-        <div class="card border border-primary">
-          <div class="card-header">
-            <strong class="text-primary">VIP</strong>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">Portfolio: 10</li>
-            <li class="list-group-item">Live Session: 15</li>
-            <li class="list-group-item">Mentoring 1-on-1: Yes</li>
-            <li class="list-group-item">Job Guarantee: Yes</li>
-            <li class="list-group-item">Price: Rp. 8.000.000</li>
-          </ul>
-        </div>
-      </div>
+      @endforeach
     </div>
   </section>
   {{-- section memberships end --}}

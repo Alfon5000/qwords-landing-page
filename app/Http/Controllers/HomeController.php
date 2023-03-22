@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bootcamp;
+use App\Models\Membership;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $bootcamps = Bootcamp::all();
+        $memberships = Membership::all();
+        return view('home', compact('bootcamps', 'memberships'));
     }
 }
